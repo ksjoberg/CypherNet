@@ -183,7 +183,7 @@
                                 else
                                 {
                                     var restEntity = record[_propertyCache[propertyName]];
-                                    itemproperties.Add(propertyName, restEntity.ToObject(propertyType));
+                                    items.Add(propertyName, restEntity.ToObject(propertyType));
                                 }
                             }
 
