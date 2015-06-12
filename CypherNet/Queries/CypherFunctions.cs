@@ -32,6 +32,20 @@
             throw new NotImplementedException();
         }
 
+        [ParseToCypher("startNode({0})")]
+        public static Node StartNode(
+            [ArgumentEvaluator(typeof(MemberNameArgumentEvaluator))] Relationship relationshipReference)
+        {
+            throw new NotImplementedException();
+        }
+
+        [ParseToCypher("endNode({0})")]
+        public static Node EndNode(
+            [ArgumentEvaluator(typeof(MemberNameArgumentEvaluator))] Relationship relationshipReference)
+        {
+            throw new NotImplementedException();
+        }
+
         [ParseToCypher("id({0})")]
         public static long Id(
             [ArgumentEvaluator(typeof (MemberNameArgumentEvaluator))] IGraphEntity relationshipReference)

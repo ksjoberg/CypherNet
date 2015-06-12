@@ -76,6 +76,15 @@
                 if (cypherFunctionAttribute != null)
                 {
                     var @params = MethodExpressionArgumentEvaluator.EvaluateArguments(method);
+
+                    if (typeof(IGraphEntity).IsAssignableFrom(method.Type))
+                    {
+                        var entityName = string.Format(cypherFunctionAttribute.Format, @params);
+                        var entityPropertyNames = new EntityReturnColumns(memberInfo.Name);
+
+                        return BuildStatement(entityName, entityPropertyNames, typeof(Relationship).IsAssignableFrom(method.Type));
+                    }
+                    
                     return string.Format(cypherFunctionAttribute.Format, @params) + " as " +
                            memberInfo.Name;
                 }
